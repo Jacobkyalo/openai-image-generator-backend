@@ -20,12 +20,12 @@ app.use(express.urlencoded({ extended: true }));
 
 // APP POST ENDPOINT
 app.post("/", async (req, res) => {
-  const { prompt, amount } = req.body;
+  const { prompt } = req.body;
 
   try {
     const response = await openai.createImage({
       prompt: `${prompt}`,
-      n: Number(`${amount}`),
+      n: 4,
       size: "1024x1024",
     });
     const imageURLS = response.data.data;
